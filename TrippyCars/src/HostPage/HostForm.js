@@ -3,6 +3,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { useRef } from "react";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 function HostForm() {
   const name = useRef();
@@ -15,8 +16,10 @@ function HostForm() {
   const carCategory = useRef();
   const carNo = useRef();
   const imgUrl = useRef();
+  const history = useHistory();
 
   async function formSubmitHandler(e) {
+    e.preventDefault();
     const cardata = {
       name: name.current.value,
       mobile: mobile.current.value,
@@ -42,6 +45,7 @@ function HostForm() {
           body: JSON.stringify(cardata),
         }
       );
+
       if (response.ok) {
         await fetch(
           `https://trippy-cars-default-rtdb.firebaseio.com/hostStatus/${localStorage.getItem(
@@ -57,11 +61,11 @@ function HostForm() {
         );
         localStorage.setItem("isHost", true);
       }
+      history.push("/");
     } catch (error) {
       alert(error);
     }
   }
-
   return (
     <Form onSubmit={formSubmitHandler}>
       <Row className="mb-3">
@@ -90,7 +94,7 @@ function HostForm() {
         <Form.Group as={Col} controlId="state">
           <Form.Label>State</Form.Label>
           <Form.Select defaultValue="Choose..." ref={state}>
-            <option>Choose...</option>
+            <option value="">Choose...</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
             <option value="Arunachal Pradesh">Arunachal Pradesh</option>
             <option value="Assam">Assam</option>
@@ -136,7 +140,7 @@ function HostForm() {
         <Form.Group as={Col} controlId="typeOfCar">
           <Form.Label>Category</Form.Label>
           <Form.Select defaultValue="Choose..." ref={carCategory}>
-            <option>Choose...</option>
+            <option value="">Choose...</option>
             <option value="SUV">SUV</option>
             <option value="Seaden">Seaden</option>
             <option value="HatchBack">Hatch Back</option>
@@ -151,15 +155,12 @@ function HostForm() {
         </Form.Group>
 
         <Form.Group as={Col} controlId="carPic">
-          <Form.Label>Link of Car Image {"(size >100KB preffered)"}</Form.Label>
+          <Form.Label>
+            Link of Car Image {"(unsplash link preffered)"}
+          </Form.Label>
           <Form.Control ref={imgUrl} />
         </Form.Group>
       </Row>
-
-      {/* <Form.Group className="mb-3" id="agreeBox">
-        <Form.Check type="checkbox" label="I Agree" />
-      </Form.Group> */}
-
       <Button
         variant="outline-secondary"
         type="submit"
