@@ -93,9 +93,11 @@ function Login() {
                   ref={passwordRef}
                 />
               </Form.Group>
-              <Button variant="secondary" type="submit">
-                LogIn
-              </Button>
+              <div className="d-grid gap-2">
+                <Button variant="secondary" type="submit">
+                  LogIn
+                </Button>
+              </div>
             </Form>
             <Button
               variant="link"

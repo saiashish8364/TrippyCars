@@ -94,9 +94,11 @@ function Signup() {
                   ref={repassRef}
                 />
               </Form.Group>
-              <Button variant="secondary" type="submit">
-                SignUp
-              </Button>
+              <div className="d-grid gap-2">
+                <Button variant="secondary" type="submit">
+                  SignUp
+                </Button>
+              </div>
             </Form>
             <Button
               variant="link"
