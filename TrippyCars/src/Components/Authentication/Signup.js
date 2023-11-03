@@ -110,7 +110,7 @@ function Signup() {
               }}
               onClick={loginHandler}
             >
-              Don't have an account? Click to SignUp
+              Have an account? Click to LogIn
             </Button>
           </Col>
         </Row>

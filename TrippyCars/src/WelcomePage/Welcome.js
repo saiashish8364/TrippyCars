@@ -90,10 +90,12 @@ function Welcome() {
         <p style={{ fontSize: "1.3rem", fontWeight: "lighter" }}>
           Terms and conditions to remember
         </p>
-        <p style={{ fontSize: "0.8rem", fontWeight: "bolder" }}>For Hosting:</p>
+        <p style={{ fontSize: "0.95rem", fontWeight: "bolder" }}>
+          For Hosting:
+        </p>
         <ul
           style={{
-            fontSize: "0.8rem",
+            fontSize: "0.95rem",
             fontWeight: "lighter",
             listStyleType: "circle",
           }}
@@ -104,10 +106,12 @@ function Welcome() {
           </li>
           <li>User can host only a single car.</li>
         </ul>
-        <p style={{ fontSize: "0.8rem", fontWeight: "bolder" }}>For Renting:</p>
+        <p style={{ fontSize: "0.95rem", fontWeight: "bolder" }}>
+          For Renting:
+        </p>
         <ul
           style={{
-            fontSize: "0.8rem",
+            fontSize: "0.95rem",
             fontWeight: "lighter",
             listStyleType: "circle",
           }}
