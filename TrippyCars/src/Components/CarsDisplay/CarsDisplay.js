@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { carActions } from "../AppStore/CarsStore";
 import { useCallback } from "react";
+import Bouncing from "../BouncingCar/Bouncing";
 
 function CarsDisplay() {
   const cars = useSelector((state) => state.cars.carsData);
@@ -52,10 +53,10 @@ function CarsDisplay() {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                marginTop: "25%",
+                marginTop: "15%",
               }}
             >
-              No Cars to display
+              <Bouncing />
             </h1>
           ) : (
             cars.map((car) => {
